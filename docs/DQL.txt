@@ -1,0 +1,61 @@
+DQL 
+Program Name: DQL.java          
+Input File: dql.dat
+
+Your boss needs you to write a parser for the Data Query Language specification for your company’s database software.  Your program will also test your parser by reading in a sample database, running some queries and printing the results of those queries to the screen.  A database is a table, where each column has a header label, and each row is a database entry consisting of the values for each column.
+
+The language itself is pretty straight forward, where the query form and query return values are described below:
+	•Query form:       SELECT <ITEM> WHERE <HEADER><OP><VALUE>
+		oSELECT always begins a query
+		o<ITEM>denotes which columns’ data entries to return in the query, and can be:
+			§an asterisk (*) which means to report the data entries from all columns, or 
+			§a comma separated list of column names (with a space after each comma)  from which you are to report the data entries. 
+			§If there is no comma, you will report only the data entries from the <ITEM>columns   meeting the query criteria.
+		oWHEREstarts an optional segment of the query consisting of <HEADER><OP><VALUE> which are used to run a logical check against the data entry to see if it should be included in the results: 
+			§<HEADER> is the header label of one of the columns. 
+			§<OP>is a logical operator, either =, <, >, <=or >=.  A column’s data should be treated as a string if the = operator is used, and an integer otherwise. 
+			§<VALUE>is the value to compare against.  It should be treated as a string if the = operator is used, and an integer otherwise. 
+	•Query return value: 
+		oif <ITEM>is an asterisk (*): 
+			§ it will return all the data entries in the rows that match the WHEREsegment,   
+			§or all the data entries in all rows if the WHEREsegment is missing. 
+		ootherwise:
+			§it will return the data entries of the columns from the <ITEM>part of the query if there is matching data from the WHEREsegment,  
+			§or NONEif there is no matching data.
+
+Input
+The input file contains first the database data and then the queries. 
+	•Database data: 
+		oThe first line of the input file will contain two integers c rseparated by a space, where the c is the number of columns and r is the number of database entries.  
+		oThe second line will contain a space delimited list of header labels for each column c o f the database.
+		oThe next r lines will each contain a space delimited list of values for each column c of the database.
+	•Queries:
+		oFollowing the database data, there will be a line containing a single integer n   that indicates the number of queries to follow. 
+		oEach of the following n lines will contain a single query in the format described above.
+
+Output
+For each query you will print the string Query #n where n is the number of the query starting at 1.  Then you will print the data from the query, one data entry per row and in the order they appear in the database.  If the query returns no data, then you should print NONE. There should be a blank line between sets of query output.
+
+Example Input File
+4 5 
+Name Sex Age Grade 
+Bob M 18 91
+Jan F 17 79
+Gus M 18 80
+Fern F 18 99
+Kat F 17 70
+2 
+SELECT Name, Age WHERE Sex=F
+SELECT Name WHERE Grade>90
+
+Example Output to Screen
+Query #1 
+Jan 17 
+Fern 18 
+Kat 17 
+
+Query #2 
+Bob 
+Fern  
+
+Note:A blank line at the end of the output is optional.

@@ -1,0 +1,44 @@
+2. Dice Roll
+Program Name: DiceRoll.java 
+Input File: diceroll.dat
+
+You are given a single six-sided die as shown on the right. Two of the opposite sides are colored white, two are colored blue, and two are colored red as shown in the picture to the right.
+
+You are to write a simulation that will determine the color that is facing upward after a given number of "rolls". At the beginning of each simulation, the die will be positioned as shown at the right:
+	• White sides are on the top and bottom.
+	• Blue sides are on the left and right.
+	• Red sides are on the front and back.
+
+For each simulation, you will need to construct one object of the type java.util.Random. This class allows you to specify the seed for the random number generator. For a given seed, the order of the random numbers is always the same.
+
+For each simulation, you will need two random numbers:
+	• The first random number r1 will be a number between 1 and 4, inclusive, and will determine the direction that the die will roll:
+		1 = forward, red would be up on the first roll
+		2 = backward, red would be up on the first roll
+		3 = left, blue would be up on the first roll
+		4 = right, blue would be up on the first roll
+	•The second random number r2 will be a number between 1 and 25, inclusive, and will determine the number of times thedie will roll in the direction determined by r1.
+
+Input
+The first line of input will contain a single integer n that indicates the number of simulations to follow. Each of the following n lines will contain a positive long which will be the seed for the random object in the simulation.
+
+Output
+For each simulation, you will print the color that will be on the top side of the die at the conclusion of the simulation. The color that will be printed will be RED, WHITE, or BLUE.
+
+Example Input File
+3
+12354643225422
+546718453
+54567755
+Example Output to Screen
+WHITE
+BLUE
+RED
+
+Random numbers generated for seeds in the input file:
+12354643225422
+4 20
+546718453
+3 11
+54567755
+2 19

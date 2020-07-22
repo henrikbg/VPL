@@ -1,0 +1,32 @@
+package vpl;
+
+import java.io.*;
+import java.util.*;
+import static java.lang.System.*;  
+
+public class PhoneNumbers {
+
+	public static void main(String args[]) throws IOException
+	{
+		Scanner kb = new Scanner(new File("data/phonenumbers.dat"));
+		
+		int times = 0; 
+		int count = Integer.parseInt(kb.nextLine().trim());
+		while(times < count) {
+			times++;		
+			boolean flag = true;
+			String t = kb.nextLine();
+			if(t.charAt(3) != '-' || t.charAt(7) != '-' || t.length() != 12)
+				flag = false;
+			for (int i=0; flag && i<3; i++) 
+				if( ! (t.substring(0,2).matches("\\d{3}") || 
+				       t.substring(4,6).matches("\\d{3}") || 
+				       t.substring(8,12).matches("\\d{4}") ))
+					flag = false;
+			if(flag)
+				out.println(t);
+			else
+				out.println("INVALID PHONE NUMBER");
+		}
+	}	
+}
